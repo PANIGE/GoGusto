@@ -85,6 +85,7 @@ CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `truck_id` int(11) NOT NULL,
+  `time` DATETIME NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `order_user_id_idx` (`user_id`),
   KEY `order_truck_id_idx` (`truck_id`),
