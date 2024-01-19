@@ -112,11 +112,14 @@ DROP TABLE IF EXISTS `trucks`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trucks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) NOT NULL,
   `slot_buffer` tinyint(3) unsigned NOT NULL,
   `opening` time NOT NULL,
   `closing` time NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `truck_owner_idx` (`owner`),
+  CONSTRAINT `truck_owner_id` FOREIGN KEY (`owner`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
